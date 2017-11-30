@@ -90,3 +90,32 @@ def grade_calc(percentage):
 
 
 print(grade_calc(59))
+
+'''Write a function called "happy_bday"
+that "sings" (prints) Happy birthday
+
+It must take one parameter called "name"
+'''
+
+
+def happy_bday(name):
+    print("Happy Birthday to you" + ',')
+    print("Happy Birthday to you" + ',')
+    print("Happy Birthday dear " + name + ',')
+    print("Happy Birthday to you" + ',')
+
+happy_bday("Edison")
+
+# Loops
+
+for num in range(10):
+    print(num + 1)
+
+a = 1
+while a < 10:
+    print(a)
+    a += 1
+
+# Random
+import random  # this should be on line 1
+print(random.randint(0,10))
