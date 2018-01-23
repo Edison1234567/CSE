@@ -9,5 +9,8 @@ make hangman
 5. Create win and lose conditions
 """
 # Adding things to a list
-the_count = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-word_bank = ['Pokemon', ""]
+word_bank = ['Pokemon', "Polygons", "FootBall", "VolleyBall", "BasketBall", "Tennis", "Soccer", "Computer", "Justice",
+             "Tigers"]
+import random  # this should be on line 1
+print(random.randint(1,10))
+print(word_bank[5])

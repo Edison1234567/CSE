@@ -137,8 +137,8 @@ print(not False)
 
 the_count = [1, 2, 3, 4, 5]
 cheeseburger_ingredients = ['cheese', "beef", "sauce", "sesame seed buns", "avacado"]
-print (cheeseburger_ingredients[3])
-print (len(cheeseburger_ingredients))
+print(cheeseburger_ingredients[3])
+print(len(cheeseburger_ingredients))
 
 # Going through lists
 for generic_item_name in cheeseburger_ingredients:
