@@ -14,4 +14,5 @@ word_bank = ['Pokemon', "Polygons", "FootBall", "VolleyBall", "BasketBall", "Ten
              "Tigers"]
 the_answer = random.choice(word_bank)
 print(the_answer)
-letters_guessed = 10
+guesses_left = 10
+letters_guessed = []
