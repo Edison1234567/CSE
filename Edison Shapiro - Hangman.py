@@ -15,10 +15,14 @@ word_bank = ['Pokemon', "Polygons", "FootBall", "VolleyBall", "BasketBall", "Ten
 the_answer = random.choice(word_bank)
 print(the_answer)
 guesses_left = 10
-while:
-    guess = 
-print("wrong guess try again")
-guesses_left -= 1
+guess = ""
+while guess != 'quit':
+    guess = input("Guess a letter: ")
+    if guess in the_answer:
+        print("you have won this guess")
+    else:
+        print("wrong guess try again")
+        guesses_left -= 1
 letters_guessed = []
 for num in range(10):
     print(num + 1)
