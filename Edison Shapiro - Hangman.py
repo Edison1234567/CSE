@@ -10,12 +10,12 @@ make hangman
 5. Create win and lose conditions
 """
 # Adding things to a list
-word_bank = ['Pokemon', "Polygons", "FootBall", "VolleyBall", "BasketBall", "Tennis", "Soccer", "Computer", "Justice",
-             "Tigers"]
+word_bank = ['pokemon', "polygons", "football", "volleyball", "basketball", "tennis", "soccer", "computer", "justice",
+             "tigers"]
 the_answer = random.choice(word_bank)
-print(the_answer)
+print("the guessed word is %s" % str(the_answer))
 guesses_left = 10
-guess = ""
+guess = "*"
 while guess != 'quit':
     guess = input("Guess a letter: ")
     if guess in the_answer:
@@ -26,3 +26,4 @@ while guess != 'quit':
 letters_guessed = []
 for num in range(10):
     print(num + 1)
+   
