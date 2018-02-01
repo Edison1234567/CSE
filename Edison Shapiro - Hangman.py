@@ -10,6 +10,9 @@ make hangman
 5. Create win and lose conditions
 """
 guesses_left = 10
+High_Score = 0
+Best_round = 0
+Rounds = 0
 # Adding things to a list
 word_bank = ['pokemon', "polygons", "football", "volleyball", "basketball", "tennis", "soccer", "computer", "justice",
              "tigers"]
@@ -30,8 +33,7 @@ while guess != 'quit':
     else:
         print("wrong guess try again")
         guesses_left -= 1
+    if guesses_left >= 0:
+        print("guesses are used game over")
     letters_guessed.append(guess)
     print(letters_guessed)
-    if int(10):
-        
-            print("guesses are used game over")
