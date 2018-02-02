@@ -184,3 +184,37 @@ print(string.punctuation)
 strTwo = "ThIs Is A Very oDd sEnTeNCe"
 lowercase = strTwo.lower()
 print(lowercase)
+
+
+# Dictionaries - Made up of key: value pair
+
+dictionary = {"name": 'Lance', 'age': 26, 'height': 12 + 2}
+
+# Accessing things from a dictionary
+print(dictionary['name'])
+print(dictionary['age'])
+print(dictionary['height'])
+
+large_dictionary = {
+    'CA': 'California',
+    'AZ': 'Arizona',
+    'NY': 'New York'
+}
+print(large_dictionary['NY'])
+
+larger_dictionary = {
+    'CA': [
+        'Fresno',
+        "San Francisco",
+        "San Jose"
+    ],
+    'NY': [
+        "New York City",
+        "Brooklyn",
+        ]
+}
+print(larger_dictionary['NY'])
+print(larger_dictionary['NY'][1])
+
+
+
