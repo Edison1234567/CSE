@@ -9,7 +9,7 @@ make hangman
 4. Reveal Letters based on input
 5. Create win and lose conditions
 """
-guesses_left = 10
+guesses_left = "%d 10"
 High_Score = 0
 Best_round = 0
 Rounds = 0
@@ -32,7 +32,8 @@ while guess != 'quit':
         print("you have won this guess")
     else:
         print("wrong guess try again")
-        guesses_left -= 1
+    print("guesses_left is %d")
+    guesses_left -= 1
     if guesses_left >= 0:
         print("guesses are used game over")
     letters_guessed.append(guess)
