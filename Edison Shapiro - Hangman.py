@@ -19,7 +19,7 @@ word_bank = ['pokemon', "polygons", "football", "volleyball", "basketball", "ten
 the_answer = random.choice(word_bank)
 guess = "*"
 letters_guessed = []
-while guess != 'quit':
+while guesses_left > 0:
     output = []
     for letter in the_answer:
         if letter in letters_guessed:
@@ -30,10 +30,13 @@ while guess != 'quit':
     guess = input("Guess a letter: ")
     if guess in the_answer:
         print("you have won this guess")
+        letters_guessed.append(guess)
+        print(letters_guessed)
     else:
         print("wrong guess try again")
-guesses_left -= 1
-guesses_left >= 0
+        guesses_left -= 1
+        letters_guessed.append(guess)
+        print(letters_guessed)
+    # print(guesses_left)
+        # Describe ONE letter (This is the game's controller)
 print("guesses are used game over")
-letters_guessed.append(guess)
-print(letters_guessed)
