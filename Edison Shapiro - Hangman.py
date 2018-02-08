@@ -40,3 +40,8 @@ while guesses_left > 0:
     # print(guesses_left)
         # Describe ONE letter (This is the game's controller)
 print("guesses are used game over")
+correct_word = "you win!"
+if correct_word in the_answer:
+    print("You Win!")
+else:
+    correct_word = True
