@@ -17,8 +17,8 @@ Rounds = 0
 word_bank = ['pokemon', "polygons", "football", "volleyball", "basketball", "tennis", "soccer", "computer", "justice",
              "tigers"]
 the_answer = random.choice(word_bank)
-guess = "*"
 letters_guessed = []
+
 while guesses_left > 0:
     output = []
     for letter in the_answer:
@@ -27,6 +27,11 @@ while guesses_left > 0:
         else:
             output.append("*")
     print(output)
+
+    if output == list(the_answer):
+        print("You Win!")
+        quit()
+
     guess = input("Guess a letter: ")
     if guess in the_answer:
         print("you have won this guess")
@@ -37,11 +42,8 @@ while guesses_left > 0:
         guesses_left -= 1
         letters_guessed.append(guess)
         print(letters_guessed)
-    # print(guesses_left)
+        # print(guesses_left)
         # Describe ONE letter (This is the game's controller)
 print("guesses are used game over")
-correct_word = "you win!"
-if correct_word in the_answer:
-    print("You Win!")
-else:
-    correct_word = True
+print(quit())
+
