@@ -14,19 +14,21 @@ High_Score = 0
 Best_round = 0
 Rounds = 0
 # Adding things to a list
-word_bank = ['pokemon', "polygons", "football", "volleyball", "basketball", "tennis", "soccer", "computer", "justice",
-             "tigers"]
+word_bank = ['pokemon', 'polygons', 'football', 'volleyball', 'basketball', 'tennis', 'soccer', 'computer', 'justice',
+             'tigers']
+
 the_answer = random.choice(word_bank)
 letters_guessed = []
 
 while guesses_left > 0:
     output = []
+
     for letter in the_answer:
         if letter in letters_guessed:
             output.append(letter)
         else:
             output.append("*")
-    print(output)
+    print("".join(output))
 
     if output == list(the_answer):
         print("You Win!")
@@ -45,5 +47,5 @@ while guesses_left > 0:
         # print(guesses_left)
         # Describe ONE letter (This is the game's controller)
 print("guesses are used game over")
-print(quit())
+
 
