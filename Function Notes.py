@@ -30,5 +30,12 @@ def distance_calc(x1, y1, x2, y2):
 
 print(distance_calc(0, 0, 3, 4))
 
+from math import *
 def pythagorean(a, b):
-    
+    return(sqrt( (a*a) + (b*b) ))
+
+
+x = input()
+y = input()
+
+print(pythagorean(x, y))
