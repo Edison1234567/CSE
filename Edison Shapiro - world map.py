@@ -1,22 +1,30 @@
 world_map = {
-    'WESTHOUSE': {
-        'NAME': 'WEST of House',
-        'DESCRIPTION': 'You are west of a white house.',
+    'TOWER': {
+        'NAME': 'Tower',
+        'DESCRIPTION': '.',
         'PATHS': {
-            'NORTH': 'NORTHHOUSE',
-            'SOUTH': 'SOUTHHOUSE'
+            'WEST': 'SHORE',
+            'EAST': 'ROCKS'
         }
     },
-
-    'SOUTHHOUSE': {
-        'NAME': 'South of House',
+    'SHORE': {
+        'NAME': 'Shore',
         'DESCRIPTION': "Insert Description here",
         'PATHS': {
-            'WEST': 'WESTHOUSE'
+            'SOUTH': 'CASTLE',
+            'EAST': "TOWER"
         }
     },
-    'NORTHHOUSE': {
-        'NAME': 'North of House',
+    'CASTLE': {
+        'NAME': 'Castle',
+        'DESCRIPTION': "Insert Description here",
+        'PATHS': {
+            'SOUTH': 'DUNGEON',
+            'NORTH': "Passage"
+        }
+    },
+    '': {
+        'NAME': 'East of House',
         'DESCRIPTION': "Insert Description here",
         'PATHS': {
             'WEST': 'WESTHOUSE'
@@ -24,8 +32,8 @@ world_map = {
     }
 }
 
-current_node = world_map['WESTHOUSE']
-directions = ['NORTH', 'SOUTH','EAST', 'WEST']
+current_node = world_map['TOWER']
+directions = ['NORTH', 'SOUTH', 'EAST', 'WEST']
 
 while True:
     print(current_node['NAME'])
