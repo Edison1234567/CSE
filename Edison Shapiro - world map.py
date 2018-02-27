@@ -22,6 +22,7 @@ world_map = {
             'SOUTH': 'DUNGEON',
             'NORTH': "PASSAGE",
             'EAST': "Point B"
+            'NORTH' 'SHORE'
         }
     },
     'DUNGEON': {
@@ -71,6 +72,8 @@ world_map = {
         'PATHS': {
             'NORTH': 'MEADOW',
             'WEST': 'CRASH'
+            'SOUTH' 'GROTTO'
+            'SOUTH' 'POINT C'
         }
     },
     'MEADOW': {
@@ -78,6 +81,7 @@ world_map = {
         'DESCRIPTION': 'Grassland',
         'PATHS': {
             'WEST': 'CRASH'
+            'SOUTH' 'CAVE'
         }
     },
     'CRASH': {
@@ -85,6 +89,8 @@ world_map = {
         'DESCRIPTION': 'Ship Crash',
         'PATHS': {
             'WEST': 'KETCH',
+            'EAST': 'MEADOW'
+            'SOUTH' 'CAVE'
         }
     },
     'KETCH': {
@@ -93,6 +99,7 @@ world_map = {
         'PATHS': {
             'NORTH': 'POINT A',
             'SOUTH': 'ROCKS'
+            'EAST' 'CRASH'
         }
     },
     'POINT A': {
@@ -107,6 +114,7 @@ world_map = {
         'PATHS': {
             'SOUTH': 'PASSAGE',
             'WEST': 'TOWER'
+            'NORTH' 'KETCH'
         }
     },
     'PASSAGE': {
@@ -114,6 +122,7 @@ world_map = {
         'DESCRIPTION': 'Through Way',
         'PATHS': {
             'SOUTH': 'CASTLE',
+            'NORTH': 'ROCKS'
         }
     },
 }
