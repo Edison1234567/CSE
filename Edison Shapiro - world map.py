@@ -106,6 +106,7 @@ world_map = {
         'NAME': 'Point A',
         'DESCRIPTION': 'Flag',
         'PATHS': {
+            'SOUTH': 'KETCH'
         }
     },
     'ROCKS': {
