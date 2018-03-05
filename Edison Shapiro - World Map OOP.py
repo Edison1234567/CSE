@@ -30,17 +30,21 @@ passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way')
 
 current_node = tower
 directions = ['north', 'south','east', 'west']
+short_directions = ['n', 's', 'e', 'w']
 
 while True:
 
-        print(self.name)   # Change
-        print(self.description)   # Change
-    command = input('>_')
+    print(current_node.name)   # Change
+    print(current_node.description)   # Change
+    command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
+    elif command in short_directions:
+        pos = short_directions.index(command)
+        command = directions[pos]
     if command in directions:
         try:
-            #  Change
+            print(current_node)  # Change
         except KeyError:
             print("You cannot go this way")
     else:
