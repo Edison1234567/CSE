@@ -8,4 +8,5 @@ class Character(object):
         self.paralyze = status_effect
         self.dialogue = True
 
-    
+    def name(self):
+        print("name = Pikachu")

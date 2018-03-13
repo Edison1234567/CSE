@@ -40,3 +40,24 @@ class KeylessCar(Car):
 test_car.turn_on()
 cool_car = KeylessCar('Aluminum', 'Driver side', 140, 2, True)
 cool_car.turn_on()
+
+
+class Tesla(KeylessCar):
+    def __init__(self, material, seat, speed, passengers, windows):
+        super(Tesla, self).__init__(material, seat, speed, passengers, windows)
+
+    def fly(self):
+        print("You launch the car into low earth orbit")
+
+
+class Person(object):
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def work(self):
+        print("%s goes to work" % self.name)
+
+
+class Employee(object):
+    def __init__(self):
