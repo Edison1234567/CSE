@@ -13,9 +13,13 @@ class Employee(Person):
         self.suit = suit
 
     def put_on(self):
-        print("You put on the suit")
+        print("%s puts on the suit" % self.name)
 
 
 class Programmer(Employee):
-    def __init__(self):
-        super(Programmer, self).__init__()
+    def __init__(self, name, age, suit, computer):
+        super(Programmer, self).__init__(name, age, suit)
+        self.computer = computer
+
+    def turn_on(self):
+        print("%s turns on the computer" % self.name)
