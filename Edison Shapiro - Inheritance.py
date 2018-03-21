@@ -44,3 +44,15 @@ class HandCannon(Gun):
     def __init__(self, name, attack, description, ammo, calm_hand):
         super(HandCannon, self).__init__(name, attack, description, ammo)
         self.calm_hand = calm_hand
+
+
+class AutoRifle(Gun):
+    def __init__(self, name, attack, description, ammo, all_round):
+        super(AutoRifle, self).__init__(name, attack, description, ammo)
+        self.all_round = all_round
+
+
+class Sniper(Gun):
+    def __init__(self, name, attack, description, ammo, long_range):
+        super(Sniper, self).__init__(name, attack, description, ammo)
+        self.long_range = long_range
