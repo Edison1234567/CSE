@@ -56,3 +56,33 @@ class Sniper(Gun):
     def __init__(self, name, attack, description, ammo, long_range):
         super(Sniper, self).__init__(name, attack, description, ammo)
         self.long_range = long_range
+
+
+class Vehicle(Item):
+    def __init__(self, name, description, transport):
+        super(Vehicle, self).__init__(name, description)
+        self.transport = transport
+
+
+class Ship(Vehicle):
+    def __init__(self, name, description, transport, space_travel):
+        super(Ship, self).__init__(name, description, transport)
+        self.space_travel = space_travel
+
+
+class Sparrow(Vehicle):
+    def __init__(self, name, description, transport, land_travel):
+        super(Sparrow, self).__init__(name, description, transport)
+        self.land_travel = land_travel
+
+
+class Armor(Item):
+    def __init__(self, name, description, defense):
+        super(Armor, self).__init__(name, description)
+        self.defense = defense
+
+
+class Helmet(Armor):
+    def __init__(self, name, description, defense, skull_protection):
+        super(Helmet, self).__init__(name, description, defense)
+        self.skull_protection = skull_protection
