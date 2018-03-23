@@ -3,11 +3,17 @@ class Item(object):
         self.name = name
         self.description = description
 
+    def use(self):
+        print("You use the %s" % self.name)
+
 
 class Weapon(Item):
     def __init__(self, name, attack, description):
         super(Weapon, self).__init__(name, description)
         self.attack = attack
+
+    def attack(self):
+        print("You attack with the %s" % self.attack)
 
 
 class Sword(Weapon):
@@ -15,17 +21,26 @@ class Sword(Weapon):
         super(Sword, self).__init__(name, attack, description)
         self.sharp_blade = sharp_blade
 
+    def swing(self):
+        print("You swing the sword and the %s kills a fallen" % self.sharp_blade)
+
 
 class Gun(Weapon):
     def __init__(self, name, attack, description, ammo):
         super(Gun, self).__init__(name, attack, description)
         self.ammo = ammo
 
+    def reload(self):
+        print("You reload your gun with %s" % self.ammo)
+
 
 class PulseRifle(Gun):
     def __init__(self, name, attack, description, ammo, five_round):
         super(PulseRifle, self).__init__(name, attack, description, ammo)
         self.five_round = five_round
+
+    def shoot(self):
+        print("You use %s and shoot 5 shots" % self.five_round)
 
 
 class ScoutRifle(Gun):
