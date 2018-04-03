@@ -7,6 +7,24 @@ class Item(object):
         print("You use the %s" % self.name)
 
 
+class Vehicle(Item):
+    def __init__(self, name, description, transport):
+        super(Vehicle, self).__init__(name, description)
+        self.transport = transport
+
+
+class Ship(Vehicle):
+    def __init__(self, name, description, transport, space_travel):
+        super(Ship, self).__init__(name, description, transport)
+        self.space_travel = space_travel
+
+
+class Sparrow(Vehicle):
+    def __init__(self, name, description, transport, land_travel):
+        super(Sparrow, self).__init__(name, description, transport)
+        self.land_travel = land_travel
+
+
 class Weapon(Item):
     def __init__(self, name, attack, description):
         super(Weapon, self).__init__(name, description)
@@ -73,24 +91,6 @@ class Sniper(Gun):
         self.long_range = long_range
 
 
-class Vehicle(Item):
-    def __init__(self, name, description, transport):
-        super(Vehicle, self).__init__(name, description)
-        self.transport = transport
-
-
-class Ship(Vehicle):
-    def __init__(self, name, description, transport, space_travel):
-        super(Ship, self).__init__(name, description, transport)
-        self.space_travel = space_travel
-
-
-class Sparrow(Vehicle):
-    def __init__(self, name, description, transport, land_travel):
-        super(Sparrow, self).__init__(name, description, transport)
-        self.land_travel = land_travel
-
-
 class Armor(Item):
     def __init__(self, name, description, defense):
         super(Armor, self).__init__(name, description)
@@ -128,4 +128,11 @@ class Boots(Armor):
 
 
 class Consumable(Item):
-    def __init__(self, name, description, ):    
+    def __init__(self, name, description, use_option):
+        super(Consumable, self).__init__(name, description)
+        self.use_option = use_option
+
+
+class BrightDust(Consumable):
+    def __init__(self, name, description, use_option, ):
+        super(BrightDust, self).__init__(name, description, use_option)
