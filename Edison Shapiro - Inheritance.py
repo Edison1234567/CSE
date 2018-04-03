@@ -101,3 +101,31 @@ class Helmet(Armor):
     def __init__(self, name, description, defense, skull_protection):
         super(Helmet, self).__init__(name, description, defense)
         self.skull_protection = skull_protection
+
+
+class ChestPlate(Armor):
+    def __init__(self, name, description, defense, chest_protection):
+        super(ChestPlate, self).__init__(name, description, defense)
+        self.chest_protection = chest_protection
+
+
+class Leggings(Armor):
+    def __init__(self, name, description, defense, leg_protection):
+        super(Leggings, self).__init__(name, description, defense)
+        self.leg_protection = leg_protection
+
+
+class Gauntlets(Armor):
+    def __init__(self, name, description, defense, arm_protection):
+        super(Gauntlets, self).__init__(name, description, defense)
+        self.arm_protection = arm_protection
+
+
+class Boots(Armor):
+    def __init__(self, name, description, defense, foot_protection):
+        super(Boots, self).__init__(name, description, defense)
+        self.foot_protection = foot_protection
+
+
+class Consumable(Item):
+    def __init__(self, name, description, ):    
