@@ -12,6 +12,9 @@ class Vehicle(Item):
         super(Vehicle, self).__init__(name, description)
         self.transport = transport
 
+    def summon(self):
+        print("You summon the vehicle")
+    
 
 class Ship(Vehicle):
     def __init__(self, name, description, transport, space_travel):
@@ -134,5 +137,24 @@ class Consumable(Item):
 
 
 class BrightDust(Consumable):
-    def __init__(self, name, description, use_option, ):
+    def __init__(self, name, description, use_option, uncommon_category):
         super(BrightDust, self).__init__(name, description, use_option)
+        self.uncommon_category = uncommon_category
+
+
+class BrightEngram(Consumable):
+    def __init__(self, name, description, use_option, uncommon_engram):
+        super(BrightEngram, self).__init__(name, description, use_option)
+        self.uncommon_engram = uncommon_engram
+
+
+class LegendaryShard(Consumable):
+    def __init__(self, name, description, use_option, rare_category):
+        super(LegendaryShard, self).__init__(name, description, use_option)
+        self.rare_category = rare_category
+
+
+class LuminousEngram(Consumable):
+    def __init__(self, name, description, use_option, rare_engram):
+        super(LuminousEngram, self).__init__(name, description, use_option)
+        self.rare_engram = rare_engram
