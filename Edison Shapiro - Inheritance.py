@@ -21,11 +21,17 @@ class Ship(Vehicle):
         super(Ship, self).__init__(name, description, transport)
         self.space_travel = space_travel
 
+    def transport(self):
+        print("You transport your ship using %s" % self.space_travel)
+
 
 class Sparrow(Vehicle):
     def __init__(self, name, description, transport, land_travel):
         super(Sparrow, self).__init__(name, description, transport)
         self.land_travel = land_travel
+
+    def transport(self):
+        print("You transport your sparrow using %s" % self.land_travel)
 
 
 class Weapon(Item):
@@ -69,7 +75,10 @@ class ScoutRifle(Gun):
         super(ScoutRifle, self).__init__(name, attack, description, ammo)
         self.precision = precision
 
+    def shoot(self):
+        print("You shoot the ScoutRifle and you get a %s shot on the fallen" % self.precision)
 
+        
 class Sidearm(Gun):
     def __init__(self, name, attack, description, ammo, high_rate_of_fire):
         super(Sidearm, self).__init__(name, attack, description, ammo)
