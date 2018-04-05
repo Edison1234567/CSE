@@ -84,11 +84,17 @@ class Sidearm(Gun):
         super(Sidearm, self).__init__(name, attack, description, ammo)
         self.high_rate_of_fire = high_rate_of_fire
 
+    def shoot(self):
+        print("You shoot the Sidearm and the %s kills a fallen" % self.high_rate_of_fire)
+
 
 class HandCannon(Gun):
     def __init__(self, name, attack, description, ammo, calm_hand):
         super(HandCannon, self).__init__(name, attack, description, ammo)
         self.calm_hand = calm_hand
+
+    def shoot(self):
+        print("The %s helps you aim in close-quarters firing as you shoot your gun and kill fallen" % self.calm_hand)
 
 
 class AutoRifle(Gun):
