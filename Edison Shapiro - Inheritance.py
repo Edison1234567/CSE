@@ -102,11 +102,17 @@ class AutoRifle(Gun):
         super(AutoRifle, self).__init__(name, attack, description, ammo)
         self.all_round = all_round
 
+    def shoot(self):
+        print("You shoot the AutoRifle and the gun fires the %s" % self.all_round)
+
 
 class Sniper(Gun):
     def __init__(self, name, attack, description, ammo, long_range):
         super(Sniper, self).__init__(name, attack, description, ammo)
         self.long_range = long_range
+
+    def shoot(self):
+        print("You shoot the Sniper gun and the %s precision head shots a fallen" % self.long_range)
 
 
 class Armor(Item):
@@ -114,7 +120,10 @@ class Armor(Item):
         super(Armor, self).__init__(name, description)
         self.defense = defense
 
+    def protect(self):
+        print("The Armor gives %s to the user" % self.defense)
 
+        
 class Helmet(Armor):
     def __init__(self, name, description, defense, skull_protection):
         super(Helmet, self).__init__(name, description, defense)
