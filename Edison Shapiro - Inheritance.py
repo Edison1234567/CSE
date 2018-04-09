@@ -129,11 +129,17 @@ class Helmet(Armor):
         super(Helmet, self).__init__(name, description, defense)
         self.skull_protection = skull_protection
 
+    def skull_protection(self):
+        print("The Helmet gives you %s" % self.skull_protection)
+
 
 class ChestPlate(Armor):
     def __init__(self, name, description, defense, chest_protection):
         super(ChestPlate, self).__init__(name, description, defense)
         self.chest_protection = chest_protection
+
+    def chest_protection(self):
+        print("The ChestPlate gives you %s" % self.chest_protection)
 
 
 class Leggings(Armor):
@@ -141,11 +147,17 @@ class Leggings(Armor):
         super(Leggings, self).__init__(name, description, defense)
         self.leg_protection = leg_protection
 
+    def leg_protection(self):
+        print("The Leggings give you %s" % self.leg_protection)
+
 
 class Gauntlets(Armor):
     def __init__(self, name, description, defense, arm_protection):
         super(Gauntlets, self).__init__(name, description, defense)
         self.arm_protection = arm_protection
+
+    def arm_protection(self):
+        print("The Gauntlets give you %s" % self.arm_protection)
 
 
 class Boots(Armor):
@@ -153,11 +165,17 @@ class Boots(Armor):
         super(Boots, self).__init__(name, description, defense)
         self.foot_protection = foot_protection
 
+    def foot_protection(self):
+        print("The Boots give you %s" % self.foot_protection)
+
 
 class Consumable(Item):
     def __init__(self, name, description, use_option):
         super(Consumable, self).__init__(name, description)
         self.use_option = use_option
+
+    def use(self):
+        print("You use the %s" % self.use_option)
 
 
 class BrightDust(Consumable):
@@ -165,7 +183,10 @@ class BrightDust(Consumable):
         super(BrightDust, self).__init__(name, description, use_option)
         self.uncommon_category = uncommon_category
 
+    def combine(self):
+        print("If there is multiple of this item in the %s combine to make BrightEngram" % self.uncommon_category)
 
+        
 class BrightEngram(Consumable):
     def __init__(self, name, description, use_option, uncommon_engram):
         super(BrightEngram, self).__init__(name, description, use_option)
