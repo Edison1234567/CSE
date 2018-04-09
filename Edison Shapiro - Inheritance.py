@@ -192,14 +192,23 @@ class BrightEngram(Consumable):
         super(BrightEngram, self).__init__(name, description, use_option)
         self.uncommon_engram = uncommon_engram
 
+    def open(self):
+        print("Opens BrightEngram and the item is a armor piece or a weapon in the %s category" % self.uncommon_engram)
+
 
 class LegendaryShard(Consumable):
     def __init__(self, name, description, use_option, rare_category):
         super(LegendaryShard, self).__init__(name, description, use_option)
         self.rare_category = rare_category
 
+    def combine(self):
+        print("If there is a multiple of this item in the %s combine to make a LuminousEngram" % self.rare_category)
+
 
 class LuminousEngram(Consumable):
     def __init__(self, name, description, use_option, rare_engram):
         super(LuminousEngram, self).__init__(name, description, use_option)
         self.rare_engram = rare_engram
+
+    def open(self):
+        print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
