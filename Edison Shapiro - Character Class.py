@@ -19,7 +19,3 @@ class Character(object):
     def death(self):
         if self.health == 0:
             print("You Died")
-
-        
-
-
