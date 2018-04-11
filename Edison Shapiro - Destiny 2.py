@@ -55,24 +55,6 @@ current_node = tower
 directions = ['north', 'south', 'east', 'west']
 short_directions = ['n', 's', 'e', 'w']
 
-while True:
-
-    print(current_node.name)
-    print(current_node.description)
-    command = input('>_').lower().strip()
-    if command == 'quit':
-        quit(0)
-    elif command in short_directions:
-        pos = short_directions.index(command)
-        command = directions[pos]
-    if command in directions:
-        try:
-            current_node.move(command)
-        except KeyError:
-            print("You cannot go this way")
-    else:
-        print("Command not recognized")
-
 
 class Item(object):
     def __init__(self, name, description):
@@ -288,3 +270,23 @@ class LuminousEngram(Consumable):
 
     def open(self):
         print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
+
+
+while True:
+    # Room Information
+    print(current_node.name)
+    print(current_node.description)
+    command = input('>_').lower().strip()
+    if command == 'quit':
+        quit(0)
+    elif command in short_directions:
+        pos = short_directions.index(command)
+        command = directions[pos]
+    if command in directions:
+        try:
+            current_node.move(command)
+        except KeyError:
+            print("You cannot go this way")
+    
+    else:
+        print("Command not recognized")
