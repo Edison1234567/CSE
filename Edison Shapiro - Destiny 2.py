@@ -276,17 +276,28 @@ while True:
     # Room Information
     print(current_node.name)
     print(current_node.description)
+
     command = input('>_').lower().strip()
     if command == 'quit':
         quit(0)
+
     elif command in short_directions:
         pos = short_directions.index(command)
         command = directions[pos]
+
+    # How to handle commands
     if command in directions:
         try:
             current_node.move(command)
         except KeyError:
             print("You cannot go this way")
-    
+
+    elif command[:7] == "pick up":
+        item = command[8:]
+        print("You have picked up the %s" % item)
     else:
         print("Command not recognized")
+        
+
+
+
