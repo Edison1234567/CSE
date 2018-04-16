@@ -14,8 +14,8 @@
       <file leaf-file-name="Edison Shapiro - Inheritance.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edison Shapiro - Inheritance.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3417">
-              <caret line="201" column="42" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="213" selection-end-column="117" />
+            <state relative-caret-position="-3349">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="213" selection-end-column="117" />
               <folding />
             </state>
           </provider>
@@ -24,8 +24,8 @@
       <file leaf-file-name="Edison Shapiro - Destiny 2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Edison Shapiro - Destiny 2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="299" column="8" lean-forward="false" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+            <state relative-caret-position="374">
+              <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -34,8 +34,8 @@
       <file leaf-file-name="Edison Shapiro - Character Class.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Edison Shapiro - Character Class.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="29" />
+            <state relative-caret-position="340">
+              <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -69,14 +69,14 @@
         <option value="$PROJECT_DIR$/Warmups.py" />
         <option value="$PROJECT_DIR$/Edison Shapiro - Guessgame.py" />
         <option value="$PROJECT_DIR$/Notes.py" />
-        <option value="$PROJECT_DIR$/Edison Shapiro - Inheritance.py" />
         <option value="$PROJECT_DIR$/Edison Shapiro - Character Class.py" />
         <option value="$PROJECT_DIR$/Edison Shapiro - CYOA.py" />
+        <option value="$PROJECT_DIR$/Edison Shapiro - Inheritance.py" />
         <option value="$PROJECT_DIR$/Edison Shapiro - Destiny 2.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="24" />
     <option name="y" value="88" />
     <option name="width" value="1346" />
@@ -320,7 +320,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19912152" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -687,14 +687,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Edison Shapiro - Character Class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="20" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Edison Shapiro - World Map OOP.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -705,16 +697,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Edison Shapiro - Inheritance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3417">
-          <caret line="201" column="42" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="213" selection-end-column="117" />
+        <state relative-caret-position="-3349">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="213" selection-end-column="117" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Edison Shapiro - Character Class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="29" lean-forward="true" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Edison Shapiro - Destiny 2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="299" column="8" lean-forward="false" selection-start-line="299" selection-start-column="8" selection-end-line="299" selection-end-column="8" />
+        <state relative-caret-position="374">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>

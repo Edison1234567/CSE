@@ -6,19 +6,27 @@ class Character(object):
         self.gun = gun
         self.sword = sword
         self.armor = armor
+        self.inventory = []
 
     def take_damage(self, amt):
         self.health -= amt
 
-    def attack(self, player):
+    def attack(self):
         player.take_damage(self.attack)
-
-    def use_item(self, armor):
-        self.use_item(armor)
 
     def death(self):
         if self.health == 0:
             print("You Died")
+
+    def use_armor(self, armor):
+        self.armor = armor
+
+
+player = Character("Test", 0, 0, 0, 0)
+player.use_armor(2)
+player.death()
+player.take_damage(5)
+player.attack()
 
 
 class Room(object):
