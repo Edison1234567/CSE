@@ -300,15 +300,10 @@ while True:
     elif command[:7] == "pick up":
         item = command[8:]
         print("You have picked up the %s" % item)
-    elif command[:7] == player.attack():
-        attack = command[8:]
-        print("You have placed a %s on a fallen" % attack)
-    elif command[:7] == player.take_damage(5):
-        take_damage = command[8:]
-        print("The fallen has made you %s" % take_damage)
-    elif command[:7] == player.death():
-        death = command[8:]
-        print("The fallen caused you to take a %s" % death)
+    elif command[:4] == "kill":
+        vandal = command[:6]
+        print("You have killed the fallen vandal")
+    
     else:
         print("Command not recognized")
         
