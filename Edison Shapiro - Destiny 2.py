@@ -27,20 +27,21 @@ player.use_armor(2)
 
 
 class Room(object):
-    def __init__(self, name, north, east, south, west, description):
+    def __init__(self, name, north, east, south, west, description, items):
         self.name = name
         self.north = north
         self.east = east
         self.south = south
         self.west = west
         self.description = description
+        self.items = items
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
 
-tower = Room("Tower", None, 'rocks', None, 'shore', 'Defense Building')
+tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower')
 shore = Room("Shore", None, 'tower', 'castle', None, 'Coast')
 castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building')
 dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell')
@@ -276,6 +277,8 @@ class LuminousEngram(Consumable):
     def open(self):
         print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
 
+
+Sparrow = Room("Tower",)
 
 while True:
     # Room Information
