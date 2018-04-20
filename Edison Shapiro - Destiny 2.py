@@ -278,7 +278,7 @@ class LuminousEngram(Consumable):
         print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
 
 
-Sparrow = Room("Tower",)
+sparrow = Sparrow('Sparrow', 'land_travel', 'transport', '200')
 
 while True:
     # Room Information
