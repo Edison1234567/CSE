@@ -278,7 +278,12 @@ class LuminousEngram(Consumable):
         print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
 
 
-sparrow = Sparrow('Sparrow', 'land_travel', 'transport', '200')
+sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixing the concept of both a plane '
+                             'and a motorcycle. It has a top speed of 200 mph '
+                             'and hovers about 3 feet of the ground. It is white with a red stripe decal along its'
+                             'left and right wing. a single seat is located on the back', 'transport', '200')
+sword = Sword('Sword', 'sharp_blade','attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
+
 
 while True:
     # Room Information
