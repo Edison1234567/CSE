@@ -283,7 +283,8 @@ sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixi
                              'and hovers about 3 feet of the ground. It is white with a red stripe decal along its'
                              'left and right wing. a single seat is located on the back', 'transport', '200')
 sword = Sword('Sword', 'sharp_blade','attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
-
+pulseRifle = PulseRifle('PulseRifle', ' attack', 'Long shooting rifle with a zoom in option while shooting,'
+                                                 ' takes 5 shots at a time', 'ammo', 'five_round')
 
 while True:
     # Room Information
