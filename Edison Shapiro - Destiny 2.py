@@ -284,7 +284,13 @@ sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixi
                              'left and right wing. a single seat is located on the back', 'transport', '200')
 sword = Sword('Sword', 'sharp_blade','attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
 pulseRifle = PulseRifle('PulseRifle', ' attack', 'Long shooting rifle with a zoom in option while shooting,'
-                                                 ' takes 5 shots at a time', 'ammo', 'five_round')
+                                                 'takes 5 shots at a time and has good stability', 'ammo', 'five_round')
+scoutRifle = ScoutRifle('ScoutRifle', 'attack', 'has medium size, has a scope for long range,'
+                                                ' and has good handling and reload speed', 'ammo', 'precision')
+sidearm = Sidearm('Sidearm', 'attack', 'short gun, has good rate of fire, stability, and reload, has good rate of fire',
+                                       'ammo', 'high_rate_of_fire')
+handCannon = HandCannon('HandCannon', 'attack', 'medium sized gun, has good impact, good for close combat', 'ammo',
+                                                'calm_hand')
 
 while True:
     # Room Information
