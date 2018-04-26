@@ -283,14 +283,21 @@ sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixi
                              'and hovers about 3 feet of the ground. It is white with a red stripe decal along its'
                              'left and right wing. a single seat is located on the back', 'transport', '200')
 sword = Sword('Sword', 'sharp_blade','attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
-pulseRifle = PulseRifle('PulseRifle', ' attack', 'Long shooting rifle with a zoom in option while shooting,'
-                                                 'takes 5 shots at a time and has good stability', 'ammo', 'five_round')
-scoutRifle = ScoutRifle('ScoutRifle', 'attack', 'has medium size, has a scope for long range,'
+pulseRifle = PulseRifle('PulseRifle', ' attack', 'The PulseRifle has a Long shooting rifle with a zoom in option'
+                                                 ' while shooting, takes 5 shots at a time and has good stability',
+                        'ammo', 'five_round')
+scoutRifle = ScoutRifle('ScoutRifle', 'attack', 'The ScoutRifle has a medium size, it has a scope for long range,'
                                                 ' and has good handling and reload speed', 'ammo', 'precision')
-sidearm = Sidearm('Sidearm', 'attack', 'short gun, has good rate of fire, stability, and reload, has good rate of fire',
-                                       'ammo', 'high_rate_of_fire')
-handCannon = HandCannon('HandCannon', 'attack', 'medium sized gun, has good impact, good for close combat', 'ammo',
-                                                'calm_hand')
+sidearm = Sidearm('Sidearm', 'attack', 'The Sidearm is a short gun, it has good rate of fire, stability, and reload, '
+                                       'it also has good rate of fire', 'ammo', 'high_rate_of_fire')
+handCannon = HandCannon('HandCannon', 'attack', 'The HandCannon is a medium sized gun, it has good impact,'
+                                                ' and is good for close combat', 'ammo', 'calm_hand')
+autoRifle = AutoRifle('AutoRifle', 'attack', 'The AutoRifle is a long gun, it has a scope, good range, good handling,'
+                                             ' and shoots all rounds at once', 'ammo', 'all_round')
+sniper = Sniper('Sniper', 'attack', 'The Sniper is a long gun, has a scope, cross map range, and has good impact',
+                'ammo', 'long_range')
+helmet = Helmet('Helmet', 'The helmet has good recovery and mobility, as well as giving skull protection', 'defense',
+                'skull_protection')
 
 while True:
     # Room Information
