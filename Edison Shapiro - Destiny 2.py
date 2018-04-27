@@ -298,6 +298,16 @@ sniper = Sniper('Sniper', 'attack', 'The Sniper is a long gun, has a scope, cros
                 'ammo', 'long_range')
 helmet = Helmet('Helmet', 'The helmet has good recovery and mobility, as well as giving skull protection', 'defense',
                 'skull_protection')
+chestPlate = ChestPlate('ChestPlate', 'The Chest Plate gives good resistance and mobility,'
+                                      ' it also gives good chest protection', 'defense', 'chest_protection')
+legging = Leggings('Leggings', 'The leggings give good recovery and mobility, it also gives good leg armor', 'defence',
+                   'leg_protection')
+gauntlet = Gauntlets('Gauntlets', 'The gauntlets give good mobility and recovery, it also gives good arm protection',
+                     'defense', 'arm_protection')
+boot = Boots('Boots', 'The boots give good mobility and recovery, it also give good foot protection', 'defense',
+             'foot_protection')
+brightDust = BrightDust('BrightDust', 'Combine 50 bright dust to make a bright engram for a armor piece or a weapon',
+                        'use_option, uncommon_engram')
 
 while True:
     # Room Information
