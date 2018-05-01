@@ -26,42 +26,6 @@ player = Character("Test", 0, 0, 0, 0)
 player.use_armor(2)
 
 
-class Room(object):
-    def __init__(self, name, north, east, south, west, description, items):
-        self.name = name
-        self.north = north
-        self.east = east
-        self.south = south
-        self.west = west
-        self.description = description
-        self.items = items
-
-    def move(self, direction):
-        global current_node
-        current_node = globals()[getattr(self, direction)]
-
-
-tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower')
-shore = Room("Shore", None, 'tower', 'castle', None, 'Coast')
-castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building')
-dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell')
-point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag')
-falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall')
-grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave')
-point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag')
-cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway')
-meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland')
-crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash')
-ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship')
-point_a = Room("Point_a", None, None, 'ketch', None, 'Flag')
-rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones')
-passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way')
-
-current_node = tower
-directions = ['north', 'south', 'east', 'west']
-short_directions = ['n', 's', 'e', 'w']
-
-
 class Item(object):
     def __init__(self, name, description):
         self.name = name
@@ -282,7 +246,7 @@ sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixi
                              'and a motorcycle. It has a top speed of 200 mph '
                              'and hovers about 3 feet of the ground. It is white with a red stripe decal along its'
                              'left and right wing. a single seat is located on the back', 'transport', '200')
-sword = Sword('Sword', 'sharp_blade','attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
+sword = Sword('Sword', 'sharp_blade', 'attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
 pulseRifle = PulseRifle('PulseRifle', ' attack', 'The PulseRifle has a Long shooting rifle with a zoom in option'
                                                  ' while shooting, takes 5 shots at a time and has good stability',
                         'ammo', 'five_round')
@@ -306,8 +270,50 @@ gauntlet = Gauntlets('Gauntlets', 'The gauntlets give good mobility and recovery
                      'defense', 'arm_protection')
 boot = Boots('Boots', 'The boots give good mobility and recovery, it also give good foot protection', 'defense',
              'foot_protection')
-brightDust = BrightDust('BrightDust', 'Combine 50 bright dust to make a bright engram for a armor piece or a weapon',
-                        'use_option, uncommon_engram')
+brightDust = BrightDust('BrightDust', 'Combine 50 bright dust to make a bright engram', 'use_option',
+                        'uncommon_category')
+brightEngram = BrightEngram('BrightEngram', 'Use a bright engram to get a armor piece or '
+                                            'a weapon of the uncommon category', 'use_option', 'uncommon_engram')
+legendaryShard = LegendaryShard('LegendaryShard', 'Combine 100 legendary shards to make a luminous engram',
+                                'use_option', 'rare_category')
+luminousEngram = LuminousEngram('LuminousEngram', 'Use a Luminous Engram to get a armor piece or a weapon of the rare'
+                                                  'category', 'use_option', 'rare_engram')
+
+
+class Room(object):
+    def __init__(self, name, north, east, south, west, description, items):
+        self.name = name
+        self.north = north
+        self.east = east
+        self.south = south
+        self.west = west
+        self.description = description
+        self.items = items
+
+    def move(self, direction):
+        global current_node
+        current_node = globals()[getattr(self, direction)]
+
+
+tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sparrow)
+shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', sword)
+castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle)
+dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle)
+point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm)
+falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon)
+grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle)
+point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper)
+cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet)
+meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate)
+crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging)
+ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet)
+point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot)
+rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust)
+passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard)
+
+current_node = tower
+directions = ['north', 'south', 'east', 'west']
+short_directions = ['n', 's', 'e', 'w']
 
 while True:
     # Room Information
@@ -332,6 +338,12 @@ while True:
     elif command[:7] == "pick up":
         item = command[8:]
         print("You have picked up the %s" % item)
+    elif command[:9] == "inventory":
+        item = command[:]
+        print("You have %s in your inventory" % item)
+    elif command[:3] == "use":
+        item = command[4:]
+        print("You have used the %s" % item)
     elif command[:4] == "kill":
         vandal = command[:6]
         print("You have killed the fallen vandal")
