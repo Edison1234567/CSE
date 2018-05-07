@@ -336,20 +336,29 @@ while True:
             print("You cannot go this way")
 
     elif command[:7] == "pick up":
-        item = command[8:]
-        print("You have picked up the %s" % item)
+        item_requested = command[8:]
+        if current_node.items is not None and item_requested.lower() == current_node.items.name.lower():
+            print("You have picked up the %s" % item_requested)
+            player.inventory.append(current_node.items)
+            current_node.items = None
+        else:
+            print("I don't see it here")
     elif command[:9] == "inventory":
-        item = command[:]
-        print("You have %s in your inventory" % item)
+        item_requested = command[10:]
+        if current_node.items is not None and item_requested.lower() == current_node.items.name.lower():
+            print("You are carrying: ")
+            player.inventory.append(current_node.items)
+            current_node.items = None
     elif command[:3] == "use":
-        item = command[4:]
-        print("You have used the %s" % item)
+        item_requested = command[4:]
+        print("You have used the %s" % item_requested)
     elif command[:4] == "kill":
-        vandal = command[:6]
+        vandal = command[6:]
         print("You have killed the fallen vandal")
     
     else:
         print("Command not recognized")
+    print()
         
 
 
