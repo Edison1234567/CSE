@@ -344,11 +344,8 @@ while True:
         else:
             print("I don't see it here")
     elif command[:9] == "inventory":
-        item_requested = command[10:]
-        if current_node.items is not None and item_requested.lower() == current_node.items.name.lower():
-            print("You are carrying: ")
-            player.inventory.append(current_node.items)
-            current_node.items = None
+        for item in player.inventory:
+            print(item.name)
     elif command[:3] == "use":
         item_requested = command[4:]
         print("You have used the %s" % item_requested)
