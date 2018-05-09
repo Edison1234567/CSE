@@ -348,10 +348,19 @@ while True:
             print(item.name)
     elif command[:3] == "use":
         item_requested = command[4:]
-        print("You have used the %s" % item_requested)
+        for item in player.inventory:
+            if item_requested.lower() == item.name.lower():
+                item.use()
+                player.inventory.remove(item)
+    elif command[:4] == "stop":
+        item_requested = command[5:]
+        print("You have successfully stopped the %s" % item_requested)
+    elif command[:5] == "equip":
+        item_requested = command[6:]
+        print("You have selected the %s to equip" % item_requested)
     elif command[:4] == "kill":
         vandal = command[6:]
-        print("You have killed the fallen vandal")
+        print("You have killed the fallen")
     
     else:
         print("Command not recognized")
