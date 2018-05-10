@@ -35,33 +35,6 @@ class Item(object):
         print("You use the %s" % self.name)
 
 
-class Vehicle(Item):
-    def __init__(self, name, description, transport):
-        super(Vehicle, self).__init__(name, description)
-        self.transport = transport
-
-    def summon(self):
-        print("You summon the vehicle")
-
-
-class Ship(Vehicle):
-    def __init__(self, name, description, transport, space_travel):
-        super(Ship, self).__init__(name, description, transport)
-        self.space_travel = space_travel
-
-    def transport(self):
-        print("You transport your ship using %s" % self.space_travel)
-
-
-class Sparrow(Vehicle):
-    def __init__(self, name, description, transport, land_travel):
-        super(Sparrow, self).__init__(name, description, transport)
-        self.land_travel = land_travel
-
-    def transport(self):
-        print("You transport your sparrow using %s" % self.land_travel)
-
-
 class Weapon(Item):
     def __init__(self, name, attack, description):
         super(Weapon, self).__init__(name, description)
@@ -96,6 +69,15 @@ class PulseRifle(Gun):
 
     def shoot(self):
         print("You use %s and shoot 5 shots" % self.five_round)
+
+
+class Shotgun(Gun):
+    def __init__(self, name, attack, description, ammo, one_round):
+        super(Shotgun, self).__init__(name, attack, description, ammo)
+        self.one_round = one_round
+
+    def shoot(self):
+        print("the shotgun does incredible amount of damage if in close combat range with %s" % self.one_round)
 
 
 class ScoutRifle(Gun):
@@ -242,11 +224,9 @@ class LuminousEngram(Consumable):
         print("Opens LuminousEngram and the item is a armor piece or a weapon in the %s category" % self.rare_engram)
 
 
-sparrow = Sparrow('Sparrow', 'The sparrow is a long, but narrow hovercraft, mixing the concept of both a plane '
-                             'and a motorcycle. It has a top speed of 200 mph '
-                             'and hovers about 3 feet of the ground. It is white with a red stripe decal along its'
-                             'left and right wing. a single seat is located on the back', 'transport', '200')
 sword = Sword('Sword', 'sharp_blade', 'attack', 'The sword has a long, sharp blade with a hilt to hold the sword with')
+shotgun = Shotgun('Shotgun', 'attack', 'The Shotgun has great impact range and stability has one shot and'
+                                       'does incredible amount of damage if in close combat', 'ammo', 'one_round')
 pulseRifle = PulseRifle('PulseRifle', ' attack', 'The PulseRifle has a Long shooting rifle with a zoom in option'
                                                  ' while shooting, takes 5 shots at a time and has good stability',
                         'ammo', 'five_round')
@@ -295,8 +275,8 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sparrow)
-shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', sword)
+tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sword)
+shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', shotgun)
 castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle)
 dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle)
 point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm)
@@ -346,18 +326,17 @@ while True:
     elif command[:9] == "inventory":
         for item in player.inventory:
             print(item.name)
+    elif command[:5] == "equip":
+        item_requested = command[6:]
+        print("You have selected the %s to equip" % item_requested)
     elif command[:3] == "use":
         item_requested = command[4:]
         for item in player.inventory:
             if item_requested.lower() == item.name.lower():
                 item.use()
                 player.inventory.remove(item)
-    elif command[:4] == "stop":
-        item_requested = command[5:]
-        print("You have successfully stopped the %s" % item_requested)
-    elif command[:5] == "equip":
-        item_requested = command[6:]
-        print("You have selected the %s to equip" % item_requested)
+        else:
+            print("I don't see that item in your inventory")
     elif command[:4] == "kill":
         vandal = command[6:]
         print("You have killed the fallen")
