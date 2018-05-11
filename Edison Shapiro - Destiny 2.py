@@ -328,14 +328,22 @@ while True:
             print(item.name)
     elif command[:5] == "equip":
         item_requested = command[6:]
-        print("You have selected the %s to equip" % item_requested)
-    elif command[:3] == "use":
-        item_requested = command[4:]
+        found = False
         for item in player.inventory:
             if item_requested.lower() == item.name.lower():
+                print("You have selected the %s to equip" % item_requested)
+                found = True
+        if not found:
+            print("I don't see that item in your inventory")
+    elif command[:3] == "use":
+        item_requested = command[4:]
+        found = False
+        for item in player.inventory:
+            if item_requested.lower() == item.name.lower():
+                found = True
                 item.use()
                 player.inventory.remove(item)
-        else:
+        if not found:
             print("I don't see that item in your inventory")
     elif command[:4] == "kill":
         vandal = command[6:]
