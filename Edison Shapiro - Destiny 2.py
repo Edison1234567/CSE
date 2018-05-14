@@ -346,8 +346,8 @@ while True:
         if not found:
             print("I don't see that item in your inventory")
     elif command[:4] == "kill":
-        vandal = command[6:]
-        print("You have killed the fallen")
+        kill_requested = command[5:]
+        print("You have killed the %s" % kill_requested)
     
     else:
         print("Command not recognized")
