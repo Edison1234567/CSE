@@ -12,7 +12,7 @@ class Character(object):
         self.health -= amt
 
     def attack(self):
-        player.take_damage(self.attack)
+        Guardian.take_damage(self.attack)
 
     def death(self):
         if self.health == 0:
@@ -22,8 +22,12 @@ class Character(object):
         self.armor = armor
 
 
-player = Character("Test", 0, 0, 0, 0)
-player.use_armor(2)
+Guardian = Character("Test", 0, 0, 0, 0)
+Guardian.use_armor(2)
+Vandal = Character("Test", 0, 0, 0, 0)
+Servitor = Character("Test", 0, 0, 0, 0)
+Captain = Character("Test", 0, 0, 0, 0)
+Shank = Character("Test", 0, 0, 0, 0)
 
 
 class Item(object):
@@ -261,7 +265,7 @@ luminousEngram = LuminousEngram('LuminousEngram', 'Use a Luminous Engram to get 
 
 
 class Room(object):
-    def __init__(self, name, north, east, south, west, description, items):
+    def __init__(self, name, north, east, south, west, description, items, characters):
         self.name = name
         self.north = north
         self.east = east
@@ -269,27 +273,28 @@ class Room(object):
         self.west = west
         self.description = description
         self.items = items
+        self.characters = characters
 
     def move(self, direction):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
 
-tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sword)
-shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', shotgun)
-castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle)
-dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle)
-point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm)
-falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon)
-grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle)
-point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper)
-cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet)
-meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate)
-crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging)
-ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet)
-point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot)
-rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust)
-passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard)
+tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sword, 'Guardian')
+shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', shotgun, 'vandal')
+castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle, 'shank')
+dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle, 'servitor')
+point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm, 'captain')
+falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon, 'shank')
+grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle, 'captain')
+point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper, 'vandal')
+cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet, 'servitor')
+meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate, 'captain')
+crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging, 'vandal')
+ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet, 'shank')
+point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot, 'servitor')
+rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust, 'vandal')
+passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard, 'shank')
 
 current_node = tower
 directions = ['north', 'south', 'east', 'west']
@@ -319,17 +324,17 @@ while True:
         item_requested = command[8:]
         if current_node.items is not None and item_requested.lower() == current_node.items.name.lower():
             print("You have picked up the %s" % item_requested)
-            player.inventory.append(current_node.items)
+            Guardian.inventory.append(current_node.items)
             current_node.items = None
         else:
             print("I don't see it here")
     elif command[:9] == "inventory":
-        for item in player.inventory:
+        for item in Guardian.inventory:
             print(item.name)
     elif command[:5] == "equip":
         item_requested = command[6:]
         found = False
-        for item in player.inventory:
+        for item in Guardian.inventory:
             if item_requested.lower() == item.name.lower():
                 print("You have selected the %s to equip" % item_requested)
                 found = True
@@ -338,11 +343,11 @@ while True:
     elif command[:3] == "use":
         item_requested = command[4:]
         found = False
-        for item in player.inventory:
+        for item in Guardian.inventory:
             if item_requested.lower() == item.name.lower():
                 found = True
                 item.use()
-                player.inventory.remove(item)
+                Guardian.inventory.remove(item)
         if not found:
             print("I don't see that item in your inventory")
     elif command[:4] == "kill":
