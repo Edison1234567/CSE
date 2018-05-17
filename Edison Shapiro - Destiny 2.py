@@ -22,12 +22,12 @@ class Character(object):
         self.armor = armor
 
 
-Guardian = Character("Test", 0, 0, 0, 0)
+Guardian = Character("Guardian", 0, 0, 0, 0)
 Guardian.use_armor(2)
-Vandal = Character("Test", 0, 0, 0, 0)
-Servitor = Character("Test", 0, 0, 0, 0)
-Captain = Character("Test", 0, 0, 0, 0)
-Shank = Character("Test", 0, 0, 0, 0)
+Vandal = Character("Vandal", 0, 0, 0, 0)
+Servitor = Character("Servitor", 0, 0, 0, 0)
+Captain = Character("Captain", 0, 0, 0, 0)
+Shank = Character("Shank", 0, 0, 0, 0)
 
 
 class Item(object):
@@ -280,21 +280,23 @@ class Room(object):
         current_node = globals()[getattr(self, direction)]
 
 
-tower = Room("Tower", None, 'rocks', None, 'shore', 'Medieval Tower', sword, 'Guardian')
-shore = Room("Shore", None, 'tower', 'castle', None, 'Coast', shotgun, 'vandal')
-castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle, 'shank')
-dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle, 'servitor')
-point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm, 'captain')
-falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon, 'shank')
-grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle, 'captain')
-point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper, 'vandal')
-cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet, 'servitor')
-meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate, 'captain')
-crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging, 'vandal')
-ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet, 'shank')
-point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot, 'servitor')
-rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust, 'vandal')
-passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard, 'shank')
+tower = Room("Tower", None, 'rocks', None, 'shore', 'There is a Medieval Tower with a sword inside'
+                                                    'You are at the tower', sword, Guardian)
+shore = Room("Shore", None, 'tower', 'castle', None, 'There is a Coast with a shotgun near the shore with a vandal'
+                                                     ' guarding it', shotgun, Vandal)
+castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle, Shank)
+dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle, Servitor)
+point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm, Captain)
+falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon, Shank)
+grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle, Captain)
+point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper, Vandal)
+cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet, Servitor)
+meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate, Captain)
+crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging, Vandal)
+ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet, Shank)
+point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot, Servitor)
+rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust, Vandal)
+passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard, Shank)
 
 current_node = tower
 directions = ['north', 'south', 'east', 'west']
@@ -352,8 +354,12 @@ while True:
             print("I don't see that item in your inventory")
     elif command[:4] == "kill":
         kill_requested = command[5:]
-        print("You have killed the %s" % kill_requested)
-    
+        if current_node.characters is not None and kill_requested.lower() == current_node.characters.name.lower():
+            print("You kill the %s" % current_node.characters.name)
+            current_node.characters = None
+        else:
+            print("There is not any %s in this area" % kill_requested)
+
     else:
         print("Command not recognized")
     print()

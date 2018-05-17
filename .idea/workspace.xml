@@ -14,8 +14,8 @@
       <file leaf-file-name="Edison Shapiro - Destiny 2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Edison Shapiro - Destiny 2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-630">
-              <caret line="296" column="94" lean-forward="false" selection-start-line="296" selection-start-column="94" selection-end-line="296" selection-end-column="94" />
+            <state relative-caret-position="205">
+              <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -702,14 +702,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Edison Shapiro - Character Class.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Edison Shapiro - Guessgame.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -736,8 +728,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Edison Shapiro - Destiny 2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-630">
-          <caret line="296" column="94" lean-forward="false" selection-start-line="296" selection-start-column="94" selection-end-line="296" selection-end-column="94" />
+        <state relative-caret-position="205">
+          <caret line="285" column="54" lean-forward="false" selection-start-line="285" selection-start-column="54" selection-end-line="285" selection-end-column="54" />
           <folding />
         </state>
       </provider>
@@ -746,6 +738,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1819">
           <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Edison Shapiro - Character Class.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
       </provider>
