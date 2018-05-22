@@ -279,24 +279,61 @@ class Room(object):
         global current_node
         current_node = globals()[getattr(self, direction)]
 
+    def read(self, description):
+        global current_node
+        current_node = globals()[getattr(self, description)]
 
-tower = Room("Tower", None, 'rocks', None, 'shore', 'There is a Medieval Tower with a sword inside'
-                                                    'You are at the tower', sword, Guardian)
+
+tower = Room("Tower", None, 'rocks', None, 'shore', 'There is a Medieval Tower with a sword inside.'
+                                                    ' To the east there is the rocks, to the west there is the shore',
+             sword, Guardian)
 shore = Room("Shore", None, 'tower', 'castle', None, 'There is a Coast with a shotgun near the shore with a vandal'
-                                                     ' guarding it', shotgun, Vandal)
-castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'Medieval Building', pulseRifle, Shank)
-dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'Underground Cell', scoutRifle, Servitor)
-point_b = Room("Point_B", 'falls', None, None, 'castle', 'Flag', sidearm, Captain)
-falls = Room("Falls", None, 'grotto', 'point_b', None, 'Waterfall', handCannon, Shank)
-grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'Small Cave', autoRifle, Captain)
-point_c = Room("Point_c", 'cave', None, None, 'grotto', 'Flag', sniper, Vandal)
-cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'Dark Pathway', helmet, Servitor)
-meadow = Room("Meadow", None, None, 'cave', 'crash', 'Grassland', chestPlate, Captain)
-crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'Ship Crash', legging, Vandal)
-ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'Ship', gauntlet, Shank)
-point_a = Room("Point_a", None, None, 'ketch', None, 'Flag', boot, Servitor)
-rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'Stones', brightDust, Vandal)
-passage = Room("passage", 'rocks', None, 'castle', None, 'Through Way', legendaryShard, Shank)
+                                                     ' guarding it. To the east is the tower,'
+                                                     ' to the south is the castle', shotgun, Vandal)
+castle = Room("Castle", 'passage, shore', 'point b', 'dungeon', None, 'There is a Medieval Building with a pulseRifle'
+                                                                      ' inside and a shank guarding it.'
+                                                                      ' To the north is the passage and shore,'
+                                                                      ' to the east is point b,'
+                                                                      ' and to the south is the dungeon',
+              pulseRifle, Shank)
+dungeon = Room("Dungeon", 'point_b, castle', None, None, None, 'There is a Underground Cell with a scoutRifle and'
+                                                               ' a Servitor guarding it. To the north is point_b and'
+                                                               ' castle', scoutRifle, Servitor)
+point_b = Room("Point_B", 'falls', None, None, 'castle', 'There is a Flag with a sidearm and a Captain guarding it.'
+                                                         ' To the north is the falls and to the west is the castle',
+               sidearm, Captain)
+falls = Room("Falls", None, 'grotto', 'point_b', None, 'There is a Waterfall with a handCannon and a Shank guarding it.'
+                                                       ' To the east is the grotto and to the south is poiint_b',
+             handCannon, Shank)
+grotto = Room("Grotto", 'cave', 'point_c', None, 'falls', 'There is a Small Cave with a autoRifle and'
+                                                          ' a Captain guarding it. To the north is a cave,'
+                                                          ' to the east is point_c, and to the west is the falls',
+              autoRifle, Captain)
+point_c = Room("Point_c", 'cave', None, None, 'grotto', 'There is a Flag with a sniper and a Vandal guarding it.'
+                                                        ' To the north is the cave and to the west is the grotto',
+               sniper, Vandal)
+cave = Room("Cave", 'Meadow', 'point_c', 'grotto', 'crash', 'There is a Dark Pathway with a helmet and'
+                                                            ' a Servitor guarding it. To the north is the meadow,'
+                                                            ' to the east is point_c, to the south is grotto,'
+                                                            ' and to the west is crash', helmet, Servitor)
+meadow = Room("Meadow", None, None, 'cave', 'crash', 'There is a Grassland with a chestPlate and a Captain guarding it.'
+                                                     ' To the south is the cave and to the west is the crash',
+              chestPlate, Captain)
+crash = Room("crash", None, 'meadow', 'cave', 'ketch', 'There is a Ship Crash with legging and a Vandal guarding it.'
+                                                       ' To the east is the meadow, to the south is the cave,'
+                                                       ' and to the west is the ketch', legging, Vandal)
+ketch = Room("Ketch", 'point_a', 'crash', 'rocks', None, 'There is a Ship with a gauntlet and a Shank guarding it.'
+                                                         ' To the north is point_a, to the east is crash,'
+                                                         ' and to the south is rocks', gauntlet, Shank)
+point_a = Room("Point_a", None, None, 'ketch', None, 'There is a Flag with a boot and a Servitor guarding it.'
+                                                     ' To the south is the ketch', boot, Servitor)
+rocks = Room("rocks", 'ketch', None, 'passage', 'tower', 'There is the Stones with a brightDust and'
+                                                         ' a Vandal guarding it. To the north is the ketch,'
+                                                         ' to the south is the passage, and to the west is the tower',
+             brightDust, Vandal)
+passage = Room("passage", 'rocks', None, 'castle', None, 'There is a Through Way with a legendaryShard and'
+                                                         ' a Shank guarding it. To the north is the rocks and'
+                                                         ' to the south is the castle', legendaryShard, Shank)
 
 current_node = tower
 directions = ['north', 'south', 'east', 'west']
