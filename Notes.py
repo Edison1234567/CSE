@@ -93,7 +93,6 @@ print(grade_calc(59))
 
 '''Write a function called "happy_bday"
 that "sings" (prints) Happy birthday
-
 It must take one parameter called "name"
 '''
 
