@@ -1,18 +1,19 @@
 class Character(object):
-    def __init__(self, name, attack, gun, sword, armor):
+    def __init__(self, name, kill_requested, gun, sword, armor):
         self.name = name
-        self.health = 120
-        self.attack = attack
+        self.health = 100
+        self.kill = kill_requested
         self.gun = gun
         self.sword = sword
         self.armor = armor
         self.inventory = []
+        self.take_damage(5)
 
     def take_damage(self, amt):
         self.health -= amt
 
-    def attack(self):
-        Guardian.take_damage(self.attack)
+    def kill(self):
+        Guardian.take_damage(self.kill)
 
     def death(self):
         if self.health == 0:
@@ -343,10 +344,12 @@ while True:
     # Room Information
     print(current_node.name)
     print(current_node.description)
+    if current_node.characters is not None:
+        Guardian.take_damage(5)
 
     command = input('>_').lower().strip()
     if command == 'quit':
-        quit(0)
+        quit()
 
     elif command in short_directions:
         pos = short_directions.index(command)
@@ -366,7 +369,7 @@ while True:
             Guardian.inventory.append(current_node.items)
             current_node.items = None
         else:
-            print("I don't see it here")
+            print("You have all ready picked up this item")
     elif command[:9] == "inventory":
         for item in Guardian.inventory:
             print(item.name)
@@ -392,7 +395,7 @@ while True:
     elif command[:4] == "kill":
         kill_requested = command[5:]
         if current_node.characters is not None and kill_requested.lower() == current_node.characters.name.lower():
-            print("You kill the %s" % current_node.characters.name)
+            print("You kill the %s but you lose 5 health due to the fight" % current_node.characters.name)
             current_node.characters = None
         else:
             print("There is not any %s in this area" % kill_requested)
